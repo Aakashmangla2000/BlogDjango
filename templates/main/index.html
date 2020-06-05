@@ -1,12 +1,19 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
+<div class="container">
 <h1>Welcome</h1>
 <h5>Top 10 Articles</h5>
 <ul>
     {% for article in latest_articles %}
-    <li>{{ article }}</li>
+    <li>
+    <a href="{% url 'get_article' article.pk%}">
+    {{ article }}
+</a>
+    </li>
     {% endfor %}
 
 </ul>
+<a href="{% url 'create_article' %}">Create new Article</a>
+</div>
 {% endblock %}
